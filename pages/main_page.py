@@ -1,7 +1,8 @@
-class BasePage(object):
-    def __init__(self, browser, url):
-        self.browser = browser
-        self.url = url
+from selenium.webdriver.common.by import By
 
-    def open(self):
-        self.browser.get(self.url)
+from .base_page import BasePage
+
+class MainPage(BasePage):
+    def go_to_login_page(self):
+        login_link = self.browser.find_element(By.CSS_SELECTOR, "#login_link")
+        login_link.click()
